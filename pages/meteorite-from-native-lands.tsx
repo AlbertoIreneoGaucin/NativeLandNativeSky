@@ -4,7 +4,7 @@ import type { NextPage } from 'next'
 const Step2Landing:NextPage = () => {
 
     return(<div>
-        this is random
+        this is not so random anymore
     </div>)
 
 }
