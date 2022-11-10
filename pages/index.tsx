@@ -67,11 +67,11 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-
+        <Link href={`/educational_tools`}> Educational Tools </Link>
         <h1 className={styles.title}>
-          I am the one
+          Map Based Learning
         </h1>
-
+        
         <div className={styles.grid}>
           {
             loading ? (
@@ -113,7 +113,7 @@ const Home: NextPage = () => {
 
       <footer className={styles.footer}>
       <Link href={`#`}>
-            Copyright
+            Homepage
           </Link>
       </footer>
     </div>
