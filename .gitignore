@@ -1,14 +1,14 @@
 # dependencies
-/node_modules
-/.pnp
+node_modules/
+.pnp/
 .pnp.js
 
 # testing
-/coverage
+coverage/
 
 # next.js
-/.next/
-/out/
+.next/
+out/
 
 # production
 /build
@@ -27,3 +27,4 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 .env
+.vscode

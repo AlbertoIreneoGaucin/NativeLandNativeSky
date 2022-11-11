@@ -1,8 +1,20 @@
+/*export default function educational_tools() {
+    return (
+      <div>
+        <h1>test Page</h1>
+        <p>Some content</p>
+      </div>
+    );
+  }
+*/
+
+'use client';
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { firestore } from '../firebase/initFirebase'
+import { firestore } from '../../firebase/initFirebase'
 import { collection, deleteDoc, doc, DocumentData, getDocs, limit, query, QueryDocumentSnapshot, updateDoc, where } from "@firebase/firestore";
-import styles from '../styles/Home.module.css'
+//import styles from '../styles/Home.module.css'
+
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import React from "react";
@@ -73,16 +85,16 @@ const Step3Landing:NextPage = () => {
         }
 
     return(
-        <div className={styles.container} >
+        <div  >
         <Head>
             <title>Educational Resources</title>
             <meta name="description" content="Next.js firebase todos app" />
             <link rel="icon" href="/favicon.ico" />
         </Head>
         
-        <main className={styles.main}>
+        <main >
         <Link href={`/`}> Home Page </Link>
-        <h1 className={styles.title}>
+        <h1 >
         Educational Resources
         </h1>
         <h2>
@@ -102,7 +114,7 @@ const Step3Landing:NextPage = () => {
         <button onClick={onButtonClick}> PDF Sample 6 </button>
       </main>
 
-      <footer className={styles.footer}>
+      <footer >
       <Link href = {`/`}>
             Homepage
           </Link>
