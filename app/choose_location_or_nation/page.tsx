@@ -33,7 +33,7 @@ import type { NextPage } from 'next'
           <Card.Text>
             find by nation
           </Card.Text>
-          <Link href="/meteroite_map">
+          <Link href="/meteorite_map">
               GO
             </Link>
         </Card.Body>
