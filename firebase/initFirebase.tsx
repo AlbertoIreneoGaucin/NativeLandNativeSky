@@ -74,8 +74,9 @@ export  { initFirebase };
 
 import {initializeApp} from "firebase/app";
 import {getFirestore} from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
-initializeApp({
+const firebaseConfig = ({
     apiKey:process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
     authDomain:process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
     projectId:process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
@@ -85,6 +86,7 @@ initializeApp({
     measurementId:process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 });
 
+const app = initializeApp(firebaseConfig);
 const firestore = getFirestore();
-
-export {firestore};
+const auth = getAuth(app);
+export {firestore , auth, app};
