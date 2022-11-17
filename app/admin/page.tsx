@@ -1,26 +1,14 @@
-import type { NextPage } from 'next'
 
-
+ import type { NextPage } from 'next'
+ import styles from '../../styles/Home.module.css'
+ import Link from 'next/link'
  
- const Admin:NextPage = () => {
-
-    
-
-  
-
-    return (
-      <div >
-        <h1>Admin</h1> 
-        
-
-     
-       
-
-        <div>
-            Lorem ipsum text 
-        </div>
-      </div>
-    );
-  }
-
- export default Admin
+ const Home: NextPage = () => {
+   return (
+     <div className={styles.container}>
+       <Link href="/login">login</Link>
+     </div>
+   )
+ }
+ 
+ export default Home
