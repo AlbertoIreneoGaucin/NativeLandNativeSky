@@ -13,6 +13,7 @@ import { Map, Marker } from "pigeon-maps"
  //import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
  
 
+// test
 
  const MapPage:NextPage = () => {
   const [isOpen, setIsOpen] = useState(false);
