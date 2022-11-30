@@ -6,7 +6,6 @@ interface props {
     handleClose: React.MouseEventHandler
     content: React.ReactElement;
 }
-
 const Popup = (props: props
     
     ) => {
