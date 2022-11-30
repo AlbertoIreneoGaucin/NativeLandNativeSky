@@ -53,15 +53,16 @@ const LoginPage:NextPage = () => {
 
   return (
     <div style={{
-      width: '40%',
+      width: '50%',
       margin: 'auto',
+      marginTop: '10%',
       textAlign :'center',
       
     }}>
     <form  style={{
-      width: '40%',
+     // width: '50%',
       margin: 'auto',
-      marginTop: '25%',
+      
       display: 'inline-block'
       
     }}noValidate autoComplete="off">

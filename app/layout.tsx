@@ -14,7 +14,7 @@ export default function RootLayout({
     
   return (
     <html>
-      <body>
+      <body style={{margin:0}}>
         <main>
         
       
