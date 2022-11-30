@@ -33,7 +33,7 @@ export default function ButtonAppBar() {
     setAnchorEl(null);
   };
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box style={{margin:0}}sx={{ flexGrow: 1 }}>
         <ThemeProvider theme={darkTheme}>
       <AppBar position="static">
         <Toolbar>

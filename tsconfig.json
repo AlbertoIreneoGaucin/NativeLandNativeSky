@@ -28,7 +28,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "firebase/initFirebase.tsx",
+    "firebase/initFirebase.ts",
     ".next/types/**/*.ts"
   ],
   "exclude": [

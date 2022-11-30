@@ -11,7 +11,7 @@
 'use client';
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { firestore } from '../../firebase/initFirebase'
+//import { firebase.firestore as firestore } from '../../firebase/initFirebase'
 import { collection, deleteDoc, doc, DocumentData, getDocs, limit, query, QueryDocumentSnapshot, updateDoc, where } from "@firebase/firestore";
 //import styles from '../styles/Home.module.css'
 
@@ -33,26 +33,26 @@ const Step3Landing:NextPage = () => {
       },[]);
     
     
-      const meteoritesCollection = collection(firestore,'Meteorites');
+      //const meteoritesCollection = collection(firestore,'Meteorites');
       
       const getEduTools = async () => {
-        const meteoritesQuery = query(meteoritesCollection,where('show','==',true),limit(10));
-        const querySnapshot = await getDocs(meteoritesQuery);
-        const result: QueryDocumentSnapshot<DocumentData>[] = [];
-        querySnapshot.forEach((snapshot) => {
-          result.push(snapshot);
-        })
-        setEduTools(result);
+        //const meteoritesQuery = query(meteoritesCollection,where('show','==',true),limit(10));
+        //const querySnapshot = await getDocs(meteoritesQuery);
+        //const result: QueryDocumentSnapshot<DocumentData>[] = [];
+        //querySnapshot.forEach((snapshot) => {
+        //  result.push(snapshot);
+        //})
+        //setEduTools(result);
       };
 
       const updateEduTools = async (documentId: string) => {
         // create a pointer to the document id
-        const _meteorites = doc(firestore,`Educational Resources/${documentId}`);
+        //const _meteorites = doc(firestore,`Educational Resources/${documentId}`);
     
         // update the doc by setting done to true
-        await updateDoc(_meteorites,{
-          "show":true
-        });
+        //await updateDoc(_meteorites,{
+        //  "show":true
+        //});
     
         // retrieve meteorites
         getEduTools();
@@ -60,10 +60,10 @@ const Step3Landing:NextPage = () => {
 
       const deleteEduTools = async (documentId:string) => {
         // create a pointer to the document id
-        const _meteorites = doc(firestore,`Meteorites/${documentId}`);
+        //const _meteorites = doc(firestore,`Meteorites/${documentId}`);
    
         // delete the doc
-        await deleteDoc(_meteorites);
+        //await deleteDoc(_meteorites);
     
         // retrieve todos
         getEduTools();
