@@ -1,6 +1,6 @@
 'use client'
 import React from "react";
-import './styles.css';
+import 'styles/popupStyles.css';
 
 interface props {
     handleClose: React.MouseEventHandler

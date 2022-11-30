@@ -51,48 +51,73 @@ import type { NextPage } from 'next'
 
       <Card sx={{ minWidth: 500 }}>
       <CardContent>
+      <Link href="/choose_location_or_nation">
         <Typography sx={{ fontSize: 26 }} color="text.secondary" gutterBottom>
           Find Meteorites in the USA
         </Typography>
     
         <Typography variant="body2">
-          picture goes here
+        <Box
+        component="img"
+        sx={{
+          height: 233,
+          width: 350,
+          maxHeight: { xs: 233, md: 167 },
+          maxWidth: { xs: 350, md: 250 },
+        }}
+        alt="A Map."
+        src="https://i.etsystatic.com/12752990/r/il/a8b469/2399351139/il_fullxfull.2399351139_qzjq.jpg"
+      />
           <br />
-          {'"a benevolent smile"'}
+          {/* {'"a benevolent smile"'} */}
         </Typography>
+        </Link>
       </CardContent>
       <CardActions>
         
-        <Link href="/choose_location_or_nation">
-        <Button size="small">Learn More</Button>
-            </Link>
+        
+        {/* <Button size="small">Learn More</Button> */}
+            
       </CardActions>
     </Card>
 
     <Card sx={{ minWidth: 500 }}>
       <CardContent>
+        <Link href="/educational_tools">
         <Typography sx={{ fontSize: 26 }} color="text.secondary" gutterBottom>
           Educational Resources
         </Typography>
     
         <Typography variant="body2">
-          picture goes here
+          {/* picture goes here */}
+          <Box
+        component="img"
+        sx={{
+          height: 233,
+          width: 350,
+          maxHeight: { xs: 233, md: 167 },
+          maxWidth: { xs: 350, md: 250 },
+        }}
+        alt="Books."
+        src="https://imageio.forbes.com/specials-images/imageserve/5f85be4ed0acaafe77436710/0x0.jpg?format=jpg&width=1200"
+      />
           <br />
-          {'"a benevolent smile"'}
+          {/* {'"a benevolent smile"'} */}
         </Typography>
+        </Link>
       </CardContent>
       <CardActions>
         
-        <Link href="/educational_tools">
-        <Button size="small">Learn More</Button>
-            </Link>
+        
+        {/* <Button size="small">Learn More</Button> */}
+            
       </CardActions>
     </Card>
         </div>
 
-        <div>
+        {/* <div>
             Lorem ipsum text 
-        </div>
+        </div> */}
       </div>
     );
   }

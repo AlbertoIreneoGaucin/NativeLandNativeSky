@@ -1,6 +1,6 @@
 
 import { NextComponentType, NextPage } from 'next'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import React, { FunctionComponent, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useAuth } from '../../contexts/AuthContext'

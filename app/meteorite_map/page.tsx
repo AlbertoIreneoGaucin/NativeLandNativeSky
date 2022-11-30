@@ -24,10 +24,14 @@ import { Map, Marker } from "pigeon-maps"
       <div >
         <h1>Map</h1> 
        
-        <Map height={300} defaultCenter={[32.7555, -97.3308]} defaultZoom={11}>
-      <Marker width={50} anchor={[32.7555, -97.3308]} onClick={setOpen}/>
+        <Map height={300} defaultCenter={[36.084621, -96.921387]} defaultZoom={5}>
+      <Marker width={50} anchor={[36.5, -95.15]} onClick={setOpen}/>
       {isOpen && <Popup 
-      content={<><p>Coordinates: [32.7555° N, 97.3308° W]</p></>} handleClose={setOpen}
+      content={<>
+      <h4>Name: Lost City</h4>
+      <p>Coordinates: [36.5° N, 95.15° W]</p>
+      <p>Short Description: This was found....</p>
+      </>} handleClose={setOpen}
       />}
     </Map>
             Lorem ipsum text 

@@ -13,15 +13,30 @@ import Menu from '@mui/material/Menu';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Fade from '@mui/material/Fade';
 import Link from 'next/link';
+import { grey } from '@mui/material/colors';
 
-const darkTheme = createTheme({
+// const darkTheme = createTheme({
+//     palette: {
+//       mode: 'dark',
+//       primary: {
+//         main: '#1976d2',
+//       },
+//     },
+//   });
+
+  const lightTheme = createTheme({
     palette: {
-      mode: 'dark',
+      // mode: 'dark',
       primary: {
-        main: '#1976d2',
+        main: grey[500],
+      },
+      secondary:{
+        main: '#000000',
       },
     },
   });
+
+  
 export default function ButtonAppBar() {
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -34,7 +49,7 @@ export default function ButtonAppBar() {
   };
   return (
     <Box sx={{ flexGrow: 1 }}>
-        <ThemeProvider theme={darkTheme}>
+        <ThemeProvider theme={lightTheme}>
       <AppBar position="static">
         <Toolbar>
         
@@ -44,6 +59,7 @@ export default function ButtonAppBar() {
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
+        color='secondary'
       >
         =
       </Button>
@@ -57,7 +73,7 @@ export default function ButtonAppBar() {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        <Link href="/"><MenuItem onClick={handleClose}> Home</MenuItem></Link>
+        <Link href="/"><MenuItem onClick={handleClose} > Home</MenuItem></Link>
         <Link href="/educational_tools"><MenuItem onClick={handleClose}>Educational Tools</MenuItem></Link>
         <Link href="/admin"><MenuItem onClick={handleClose}>Admin</MenuItem></Link>
       </Menu>

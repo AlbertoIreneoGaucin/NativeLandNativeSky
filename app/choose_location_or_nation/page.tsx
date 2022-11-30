@@ -13,6 +13,7 @@ import type { NextPage } from 'next'
  import Button from '@mui/material/Button';
  import Typography from '@mui/material/Typography';
  
+ 
  const Step2Page:NextPage = () => {
     const bull = (
         <Box
@@ -24,7 +25,7 @@ import type { NextPage } from 'next'
       );
     return (
       <div >
-        <h1>placeholder</h1> 
+        <h1>Meteorites From Native Lands</h1> 
         <div style={{display:"flex"}}>
      {/*
         <Card style={{ width: '18rem' }}>
@@ -56,48 +57,74 @@ import type { NextPage } from 'next'
     */}
       <Card sx={{ minWidth: 500 }}>
       <CardContent>
+        <Link href="/meteorite_map">
         <Typography sx={{ fontSize: 26 }} color="text.secondary" gutterBottom>
+        
+        {/* <Button size="small">Learn More</Button> */}
+       
           Find Meteorites by Location
         </Typography>
-    
+     
         <Typography variant="body2">
-          picture goes here
+          {/* <Image src="./icons/istockphoto-1073058750-612x612.jpg"> */}
+          <Box
+        component="img"
+        sx={{
+          height: 233,
+          width: 350,
+          maxHeight: { xs: 233, md: 167 },
+          maxWidth: { xs: 350, md: 250 },
+        }}
+        alt="Meteorite Falling."
+        src="https://images.ctfassets.net/cnu0m8re1exe/1rGhxqBLxILKk2D4SzxQ2N/c84142594e0249cee9ec6b172b487a93/shutterstock_296869262.jpg?fm=jpg&fl=progressive&w=660&h=433&fit=fill"
+      />
           <br />
-          {'"a benevolent smile"'}
+          {/* {'"a benevolent smile"'} */}
         </Typography>
+        </Link>
       </CardContent>
       <CardActions>
         
-        <Link href="/meteorite_map">
+        {/* <Link href="/meteorite_map">
         <Button size="small">Learn More</Button>
-            </Link>
+            </Link> */}
       </CardActions>
     </Card>
 
     <Card sx={{ minWidth: 500 }}>
       <CardContent>
+      <Link href="/meteorite_map">
         <Typography sx={{ fontSize: 26 }} color="text.secondary" gutterBottom>
           Find Meteorites by Nation
         </Typography>
     
         <Typography variant="body2">
-          picture goes here
+          {/* picture goes here */}
+          <Box
+        component="img"
+        sx={{
+          height: 233,
+          width: 350,
+          maxHeight: { xs: 233, md: 167 },
+          maxWidth: { xs: 350, md: 250 },
+        }}
+        alt="A Map."
+        src="https://i.etsystatic.com/12752990/r/il/a8b469/2399351139/il_fullxfull.2399351139_qzjq.jpg"
+      />
           <br />
-          {'"a benevolent smile"'}
+          {/* {'"a benevolent smile"'} */}
         </Typography>
+        </Link>
       </CardContent>
       <CardActions>
-        
-        <Link href="/meteorite_map">
-        <Button size="small">Learn More</Button>
-            </Link>
+            
       </CardActions>
     </Card>
         </div>
 
-        <div>
+        {/* <div>
             Lorem ipsum text 
-        </div>
+        </div> */}
       </div>
     );
   }
