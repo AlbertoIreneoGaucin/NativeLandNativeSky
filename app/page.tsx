@@ -20,34 +20,7 @@ import type { NextPage } from 'next'
         <h1>Meteorites from native lands</h1> 
         <div style={{display:"flex"}}>
 
-            {/*
-        <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="" />
-        <Card.Body>
-          <Card.Title>Meteorites from Native Lands USA</Card.Title>
-          <Card.Text>
-            See some meteorites from the USA
-          </Card.Text>
-          <Link href="/choose_location_or_nation">
-              GO
-            </Link>
-        </Card.Body>
-      </Card>
-
-
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="" />
-        <Card.Body>
-          <Card.Title>Educational Tools</Card.Title>
-          <Card.Text>
-            See and download educational tools
-          </Card.Text>
-          <Link href="/educational_tools">
-              GO
-            </Link>
-        </Card.Body>
-      </Card>
- */}
+        
 
       <Card sx={{ minWidth: 500 }}>
       <CardContent>
@@ -76,7 +49,7 @@ import type { NextPage } from 'next'
         </Typography>
     
         <Typography variant="body2">
-          picture goes here
+          
           <br />
           {'"a benevolent smile"'}
         </Typography>
