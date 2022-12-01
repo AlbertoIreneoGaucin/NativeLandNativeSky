@@ -23,7 +23,7 @@ import Typography from '@mui/material/Typography';
   
     return (
       <div >
-        <Typography fontFamily={'Times'} align="center">
+        <Typography align="center">
         <h1>Meteorite Map</h1> 
        
         <Map height={700} defaultCenter={[36.084621, -96.921387]} defaultZoom={5}>

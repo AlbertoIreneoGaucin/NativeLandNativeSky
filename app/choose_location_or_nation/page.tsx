@@ -26,7 +26,7 @@ import { CardMedia } from '@mui/material';
       );
     return (
       <div>
-         <Typography fontFamily={'Times'} align="center">
+         <Typography align="center">
       <div >
         <h1>Meteorites From Native Lands</h1> 
         <div style={{display:"flex"}}>

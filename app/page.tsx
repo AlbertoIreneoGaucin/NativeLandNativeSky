@@ -19,7 +19,7 @@ import { border, createTheme, ThemeProvider } from '@mui/system';
     return (
       
       <div >
-        <Typography fontFamily={'Times'} align="center">
+        <Typography padding="15px" align="center">
         <h1 >Meteorites from Native Lands</h1>
         <div style={{display:"flex"}}>
 
@@ -98,7 +98,8 @@ import { border, createTheme, ThemeProvider } from '@mui/system';
           <h2 >About This Project</h2>
           <Typography textAlign={'justify'} 
           paragraph={true}
-          variant={'body1'}>
+          variant={'body1'}
+          >
             <p>
             Meteorites lend themselves well to place-based education, which connects student learning to their surroundings. Establishing learning as personally relevant increased engagement and strengthens ties within the local and global community. The meteorite story can serve as the foundation for understanding the entire history of the meteorite, including its formation, thus a concrete example of cultural relevance in planetary science and STEM.
           </p>

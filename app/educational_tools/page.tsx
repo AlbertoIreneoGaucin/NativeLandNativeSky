@@ -18,6 +18,12 @@ import { collection, deleteDoc, doc, DocumentData, getDocs, limit, query, QueryD
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import React from "react";
+import { display } from '@mui/system';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import { grey } from '@mui/material/colors';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { Box, ButtonGroup } from '@mui/material';
 
 const Step3Landing:NextPage = () => {
 
@@ -32,7 +38,18 @@ const Step3Landing:NextPage = () => {
         
       },[]);
     
-    
+      const theme = createTheme({
+        palette: {
+          // mode: 'dark',
+          primary: {
+            main: grey[500],
+          },
+          secondary:{
+            main: '#ffffff',
+          },
+        },
+      });
+
       const meteoritesCollection = collection(firestore,'Meteorites');
       
       const getEduTools = async () => {
@@ -93,32 +110,53 @@ const Step3Landing:NextPage = () => {
         </Head>
         
         <main >
-        <Link href={`/`}> Home Page </Link>
+          <ThemeProvider theme={theme}>
+          <Typography >
+        {/* <Link href={`/`}> Home Page </Link> */}
+        <Typography align="inherit">
+
         <h1 >
         Educational Resources
         </h1>
+        </Typography>
+
         <h2>
             High School Materials
         </h2>
-        <button onClick={onButtonClick}> PDF Sample 1 </button>
-        <button onClick={onButtonClick}> PDF Sample 2 </button>
+        <Box sx={{px:2}}>
+        <Button variant='contained' color='secondary' sx={{ border: 1, marginRight:'5px' }} onClick={onButtonClick} > PDF Sample 1 </Button>
+        <Button variant='contained' color='secondary' sx={{ border: 1 }} onClick={onButtonClick}> PDF Sample 2 </Button>
+
+        </Box>
+
+
         <h2>
             Middle School Materials
         </h2>
-        <button onClick={onButtonClick}> PDF Sample 3 </button>
-        <button onClick={onButtonClick}> PDF Sample 4 </button>
+
+        <Box sx={{px:2}}>
+        <Button variant='contained' color='secondary' sx={{ border: 1, marginRight:'5px' }}  onClick={onButtonClick}> PDF Sample 3 </Button>
+        <Button variant='contained' color='secondary' sx={{ border: 1 }}  onClick={onButtonClick}> PDF Sample 4 </Button>
+        </Box>
+
+
         <h2>
             Elementary School Materials
         </h2>
-        <button onClick={onButtonClick}> PDF Sample 5 </button>
-        <button onClick={onButtonClick}> PDF Sample 6 </button>
+        <Box sx={{px:2}}>
+        <Button variant='contained' color='secondary' sx={{ border: 1, marginRight:'5px' }}  onClick={onButtonClick}> PDF Sample 5 </Button>
+        <Button variant='contained' color='secondary' sx={{ border: 1 }}  onClick={onButtonClick}> PDF Sample 6 </Button>
+        </Box>
+
+        </Typography>
+        </ThemeProvider>
       </main>
 
-      <footer >
+      {/* <footer >
       <Link href = {`/`}>
             Homepage
           </Link>
-      </footer>
+      </footer> */}
     </div>)
 
 }
