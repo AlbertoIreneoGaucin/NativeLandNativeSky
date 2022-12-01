@@ -11,7 +11,9 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@mui/material": "^5.10.13",
+    "@mui/icons-material": "^5.10.16",
+    "@mui/material": "^5.10.16",
+    "@mui/styled-engine-sc": "^5.10.16",
     "@react-google-maps/api": "^2.16.1",
     "bootstrap": "^5.2.2",
     "deck.gl": "^8.8.18",

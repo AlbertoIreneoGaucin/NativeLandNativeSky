@@ -7,6 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
+
 //import MenuIcon from '@mui/icons-material/Menu';
 import { MenuItem } from '@mui/material';
 import Menu from '@mui/material/Menu';
@@ -14,15 +15,8 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Fade from '@mui/material/Fade';
 import Link from 'next/link';
 import { grey } from '@mui/material/colors';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-// const darkTheme = createTheme({
-//     palette: {
-//       mode: 'dark',
-//       primary: {
-//         main: '#1976d2',
-//       },
-//     },
-//   });
 
   const lightTheme = createTheme({
     palette: {
@@ -54,16 +48,18 @@ export default function ButtonAppBar() {
       <AppBar position="static">
         <Toolbar>
         
-          <Button
-        id="fade-button"
-        aria-controls={open ? 'fade-menu' : undefined}
-        aria-haspopup="true"
+        <IconButton
+        aria-label="more"
+        id="long-button"
+        aria-controls={open ? 'long-menu' : undefined}
         aria-expanded={open ? 'true' : undefined}
+        aria-haspopup="true"
         onClick={handleClick}
-        color='secondary'
+        color="secondary"
       >
-        =
-      </Button>
+        <MoreVertIcon />
+      </IconButton>
+
       <Menu
         id="fade-menu"
         MenuListProps={{
@@ -73,10 +69,15 @@ export default function ButtonAppBar() {
         open={open}
         onClose={handleClose}
         TransitionComponent={Fade}
+        color="secondary"
       >
-        <Link href="/"><MenuItem onClick={handleClose} > Home</MenuItem></Link>
-        <Link href="/educational_tools"><MenuItem onClick={handleClose}>Educational Tools</MenuItem></Link>
-        <Link href="/admin"><MenuItem onClick={handleClose}>Admin</MenuItem></Link>
+
+          <MenuItem  color='secondary' href='/' component={Link} onClick={handleClose} > Home</MenuItem>
+
+          <MenuItem color="secondary"  href="/educational_tools" component={Link} onClick={handleClose}>Educational Tools</MenuItem>
+
+          <MenuItem href="/admin" color="secondary" component={Link} onClick={handleClose}>Admin</MenuItem>
+
       </Menu>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Interactive Map tool

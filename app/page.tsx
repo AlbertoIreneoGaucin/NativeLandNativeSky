@@ -12,58 +12,36 @@ import type { NextPage } from 'next'
  import CardContent from '@mui/material/CardContent';
  import Button from '@mui/material/Button';
  import Typography from '@mui/material/Typography';
+import { border, createTheme, ThemeProvider } from '@mui/system';
 
 
  const HomePage:NextPage = () => {
     return (
+      
       <div >
-        <h1>Meteorites from native lands</h1> 
+        <Typography fontFamily={'Times'} align="center">
+        <h1 >Meteorites from Native Lands</h1>
         <div style={{display:"flex"}}>
 
-            {/*
-        <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="" />
-        <Card.Body>
-          <Card.Title>Meteorites from Native Lands USA</Card.Title>
-          <Card.Text>
-            See some meteorites from the USA
-          </Card.Text>
-          <Link href="/choose_location_or_nation">
-              GO
-            </Link>
-        </Card.Body>
-      </Card>
-
-
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="" />
-        <Card.Body>
-          <Card.Title>Educational Tools</Card.Title>
-          <Card.Text>
-            See and download educational tools
-          </Card.Text>
-          <Link href="/educational_tools">
-              GO
-            </Link>
-        </Card.Body>
-      </Card>
- */}
-
-      <Card sx={{ minWidth: 500 }}>
+      <Card sx={{ width: '50%' }} 
+      style={{border: '10rem'}}
+      >
+        
       <CardContent>
       <Link href="/choose_location_or_nation">
-        <Typography sx={{ fontSize: 26 }} color="text.secondary" gutterBottom>
+
+        <Typography sx={{ fontSize: 26 }} color="text.secondary" gutterBottom >
           Find Meteorites in the USA
         </Typography>
     
-        <Typography variant="body2">
+        <Typography variant="body2" >
         <Box
         component="img"
         sx={{
-          height: 233,
-          width: 350,
-          maxHeight: { xs: 233, md: 167 },
-          maxWidth: { xs: 350, md: 250 },
+          height: '100%',
+          width: '100%',
+          // maxHeight: { xs: 233, md: 167 },
+          // maxWidth: { xs: 350, md: 250 },
         }}
         alt="A Map."
         src="https://i.etsystatic.com/12752990/r/il/a8b469/2399351139/il_fullxfull.2399351139_qzjq.jpg"
@@ -81,22 +59,22 @@ import type { NextPage } from 'next'
       </CardActions>
     </Card>
 
-    <Card sx={{ minWidth: 500 }}>
+    <Card sx={{ width: '50%' }} >
       <CardContent>
         <Link href="/educational_tools">
-        <Typography sx={{ fontSize: 26 }} color="text.secondary" gutterBottom>
+        <Typography sx={{ fontSize: 26 }} color="text.secondary" gutterBottom >
           Educational Resources
         </Typography>
     
-        <Typography variant="body2">
+        <Typography variant="body2" >
           {/* picture goes here */}
           <Box
         component="img"
         sx={{
-          height: 233,
-          width: 350,
-          maxHeight: { xs: 233, md: 167 },
-          maxWidth: { xs: 350, md: 250 },
+          height: '100%',
+          width: '100%',
+          // maxHeight: { xs: 233, md: 167 },
+          // maxWidth: { xs: 350, md: 250 },
         }}
         alt="Books."
         src="https://imageio.forbes.com/specials-images/imageserve/5f85be4ed0acaafe77436710/0x0.jpg?format=jpg&width=1200"
@@ -113,11 +91,25 @@ import type { NextPage } from 'next'
             
       </CardActions>
     </Card>
+    
         </div>
+    
+        <div>
+          <h2 >About This Project</h2>
+          <Typography textAlign={'justify'} 
+          paragraph={true}
+          variant={'body1'}>
+            <p>
+            Meteorites lend themselves well to place-based education, which connects student learning to their surroundings. Establishing learning as personally relevant increased engagement and strengthens ties within the local and global community. The meteorite story can serve as the foundation for understanding the entire history of the meteorite, including its formation, thus a concrete example of cultural relevance in planetary science and STEM.
+          </p>
+          <p>
+            NaLa will develop free-choice STEM resources, including a website, that focuses on meteorites found on the lands of the three Oklahoma Native American nations participating in Native Earth | Native Sky. In addition, NaLa will produce supplemental resources for NENS that fit their developed curricula model and meet their culturally-relevant requirements.
+          </p>
+          </Typography>
+        </div>
+        </Typography> 
 
-        {/* <div>
-            Lorem ipsum text 
-        </div> */}
+        <br/>
       </div>
     );
   }

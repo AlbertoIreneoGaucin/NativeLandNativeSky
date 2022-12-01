@@ -6,6 +6,7 @@ import React, { useCallback, useMemo, useState } from "react";
 import Popup from './Popup';
 
 import { Map, Marker } from "pigeon-maps"
+import Typography from '@mui/material/Typography';
 //import GoogleMapReact from 'google-map-react';
 //import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
@@ -22,9 +23,10 @@ import { Map, Marker } from "pigeon-maps"
   
     return (
       <div >
-        <h1>Map</h1> 
+        <Typography fontFamily={'Times'} align="center">
+        <h1>Meteorite Map</h1> 
        
-        <Map height={300} defaultCenter={[36.084621, -96.921387]} defaultZoom={5}>
+        <Map height={700} defaultCenter={[36.084621, -96.921387]} defaultZoom={5}>
       <Marker width={50} anchor={[36.5, -95.15]} onClick={setOpen}/>
       {isOpen && <Popup 
       content={<>
@@ -34,7 +36,8 @@ import { Map, Marker } from "pigeon-maps"
       </>} handleClose={setOpen}
       />}
     </Map>
-            Lorem ipsum text 
+            {/* Lorem ipsum text  */}
+            </Typography>
         </div>
     
     );
