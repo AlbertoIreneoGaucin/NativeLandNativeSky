@@ -1,4 +1,3 @@
-
 'use client'
 import Link from 'next/link'
 import type { NextPage } from 'next'
@@ -19,7 +18,7 @@ import { CardMedia } from '@mui/material';
     const bull = (
         <Box
           component="span"
-          sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+          sx={{ display: 'flex', mx: '2px', transform: 'scale(0.8)' }}
         >
           •
         </Box>
@@ -30,7 +29,9 @@ import { CardMedia } from '@mui/material';
       <div >
         <h1>Meteorites From Native Lands</h1> 
         <div style={{display:"flex"}}>
-    
+    <Card
+    sx={{ display: 'flex', mx: '2px', transform: 'scale(0.8)' }}
+    >
       <Card sx={{ minWidth: '50%' }}>
       {/* <CardMedia image="https://images.ctfassets.net/cnu0m8re1exe/1rGhxqBLxILKk2D4SzxQ2N/c84142594e0249cee9ec6b172b487a93/shutterstock_296869262.jpg?fm=jpg&fl=progressive&w=660&h=433&fit=fill"
         sx={{
@@ -41,13 +42,13 @@ import { CardMedia } from '@mui/material';
           }}> */}
       <CardContent>
         
-          <br/>
+          {/* <br/> */}
         <Link href="/meteorite_map">
         <Typography sx={{ fontSize: 26 }} color="text.secondary" gutterBottom >
         
           Find Meteorites by Location
         </Typography>
-     
+     <br/>
         <Typography variant="body2">
           <Box
         component="img"
@@ -60,7 +61,7 @@ import { CardMedia } from '@mui/material';
         alt="Meteorite Falling"
         src="https://images.ctfassets.net/cnu0m8re1exe/1rGhxqBLxILKk2D4SzxQ2N/c84142594e0249cee9ec6b172b487a93/shutterstock_296869262.jpg?fm=jpg&fl=progressive&w=660&h=433&fit=fill"
       />
-          <br />
+      
 
         </Typography>
         </Link>
@@ -101,6 +102,7 @@ import { CardMedia } from '@mui/material';
             
       </CardActions>
     </Card>
+    </Card>
         </div>
       </div>
       </Typography>
@@ -108,10 +110,4 @@ import { CardMedia } from '@mui/material';
     );
   }
 
- export default Step2Page
-  
-  
- 
- 
-
- 
+  export default Step2Page

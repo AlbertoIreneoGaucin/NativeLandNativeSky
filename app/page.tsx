@@ -22,7 +22,9 @@ import { border, createTheme, ThemeProvider } from '@mui/system';
         <Typography padding="15px" align="center">
         <h1 >Meteorites from Native Lands</h1>
         <div style={{display:"flex"}}>
-
+        <Card
+    sx={{ display: 'flex', mx: '2px', transform: 'scale(0.8)' }}
+    >
       <Card sx={{ width: '50%' }} 
       style={{border: '10rem'}}
       >
@@ -44,7 +46,7 @@ import { border, createTheme, ThemeProvider } from '@mui/system';
           // maxWidth: { xs: 350, md: 250 },
         }}
         alt="A Map."
-        src="https://i.etsystatic.com/12752990/r/il/a8b469/2399351139/il_fullxfull.2399351139_qzjq.jpg"
+        src="https://img.freepik.com/premium-vector/usa-map-outline-white-background_69311-95.jpg"
       />
           <br />
           {/* {'"a benevolent smile"'} */}
@@ -90,6 +92,7 @@ import { border, createTheme, ThemeProvider } from '@mui/system';
         {/* <Button size="small">Learn More</Button> */}
             
       </CardActions>
+    </Card>
     </Card>
     
         </div>
