@@ -25,6 +25,89 @@ import { firestore } from '../../firebase/initFirebase'
 
 import { collection, getDocs } from "firebase/firestore";
 
+//////----------------------------------------------------
+//import { useState } from "react";
+import { storage } from '../../firebase/initFirebase'
+import {uploadBytesResumable, getDownloadURL } from "firebase/storage";
+
+import {getStorage, ref, uploadBytes, listAll} from "firebase/storage";
+
+/*
+uploadBytes(pdf1ref, file).then((snapshot) => {
+  console.log('Uploaded a blob or file!');
+});
+
+const uploadTask = uploadBytesResumable(pdf1ref, file);
+*/
+
+const Step3Landing:NextPage = () => {
+  //const storage = getStorage();
+  const listRef = ref(storage, 'files/uid');
+  const pdf1ref = ref(storage);
+
+  listAll(pdf1ref)
+    .then((res) => {
+      //console.log ("HELLO")
+      console.log(res.prefixes);
+      res.prefixes.forEach((folderRef) => {
+        // All the prefixes under listRef.
+        // You may call listAll() recursively on them.
+        //console.log("HELLO");
+      });
+      console.log(res.items);
+      console.log ("HI THERE")
+      res.items.forEach((itemRef) => {
+        // All the items under listRef.
+        console.log(itemRef);
+        console.log ("HELLO")
+      });
+    }).catch((error) => {
+      // Uh-oh, an error occurred!
+    });
+
+    return(
+      <div  >
+      <Head>
+          <title>Educational Resources</title>
+          <meta name="description" content="Next.js firebase todos app" />
+          <link rel="icon" href="/favicon.ico" />
+      </Head>
+      
+      <main >
+      <Link href={`/`}> Home Page </Link>
+      <h1 >
+      Educational Resources
+      </h1>
+      <h2>
+          High School Materials
+      </h2>
+      <button> PDF Sample 1 </button>
+      <button> PDF Sample 2 </button>
+      <h2>
+          Middle School Materials
+      </h2>
+      <button> PDF Sample 3 </button>
+      <button> PDF Sample 4 </button>
+      <h2>
+          Elementary School Materials
+      </h2>
+      <button> PDF Sample 5 </button>
+      <button> PDF Sample 6 </button>
+    </main>
+  
+    <footer >
+    <Link href = {`/`}>
+          Homepage
+        </Link>
+    </footer>
+  </div>
+    )
+}
+
+export default Step3Landing;
+//////----------------------------------------------------
+
+/*
 const Step3Landing:NextPage = () => {
 
   async function getContents() {
@@ -36,6 +119,13 @@ const Step3Landing:NextPage = () => {
     //then here make a new object and print it back out to the screen
   }
 
+
+  function handleUpload() {
+    if (!file) {
+    alert("Please choose a file first!")
+    }
+    }
+    
   return(
     <div  >
     <Head>
@@ -76,6 +166,7 @@ const Step3Landing:NextPage = () => {
 };
 
 export default Step3Landing;
+*/
 
     /*
     const [meteorites,setEduTools] = useState<QueryDocumentSnapshot<DocumentData>[]>([]);
