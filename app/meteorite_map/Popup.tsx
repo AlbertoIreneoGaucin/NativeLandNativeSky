@@ -2,7 +2,6 @@
 import React from "react";
 import 'styles/popupStyles.css';
 
-
 interface props {
     handleClose: React.MouseEventHandler
     content: React.ReactElement;
