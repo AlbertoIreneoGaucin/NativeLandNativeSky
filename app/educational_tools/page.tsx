@@ -11,16 +11,73 @@
 'use client';
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { firestore } from '../../firebase/initFirebase'
-import { collection, deleteDoc, doc, DocumentData, getDocs, limit, query, QueryDocumentSnapshot, updateDoc, where } from "@firebase/firestore";
+//import { firestore } from '../../firebase/initFirebase'
+//import { collection, deleteDoc, doc, DocumentData, getDocs, limit, query, QueryDocumentSnapshot, updateDoc, where } from "@firebase/firestore";
 //import styles from '../styles/Home.module.css'
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import React from "react";
 
+import { doc, getDoc} from "firebase/firestore"; 
+import { firestore } from '../../firebase/initFirebase'
+
+
+import { collection, getDocs } from "firebase/firestore";
+
 const Step3Landing:NextPage = () => {
 
+  async function getContents() {
+    const querySnapshot = await getDocs(collection(firestore, "Meteorites"));
+    querySnapshot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.id, " => ", doc.data());
+    });
+    //then here make a new object and print it back out to the screen
+  }
+
+  return(
+    <div  >
+    <Head>
+        <title>Educational Resources</title>
+        <meta name="description" content="Next.js firebase todos app" />
+        <link rel="icon" href="/favicon.ico" />
+    </Head>
+    
+    <main >
+    <Link href={`/`}> Home Page </Link>
+    <h1 >
+    Educational Resources
+    </h1>
+    <h2>
+        High School Materials
+    </h2>
+    <button onClick={getContents} > PDF Sample 1 </button>
+    <button> PDF Sample 2 </button>
+    <h2>
+        Middle School Materials
+    </h2>
+    <button> PDF Sample 3 </button>
+    <button> PDF Sample 4 </button>
+    <h2>
+        Elementary School Materials
+    </h2>
+    <button> PDF Sample 5 </button>
+    <button> PDF Sample 6 </button>
+  </main>
+
+  <footer >
+  <Link href = {`/`}>
+        Homepage
+      </Link>
+  </footer>
+</div>
+  )
+};
+
+export default Step3Landing;
+
+    /*
     const [meteorites,setEduTools] = useState<QueryDocumentSnapshot<DocumentData>[]>([]);
     const [loading,setLoading] = useState<boolean>(true);
 
@@ -120,7 +177,6 @@ const Step3Landing:NextPage = () => {
           </Link>
       </footer>
     </div>)
-
+    
 }
-
-export default Step3Landing
+*/
