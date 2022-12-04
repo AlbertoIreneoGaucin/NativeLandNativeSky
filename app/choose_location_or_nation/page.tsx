@@ -12,7 +12,13 @@ import type { NextPage } from 'next'
  import CardContent from '@mui/material/CardContent';
  import Button from '@mui/material/Button';
  import Typography from '@mui/material/Typography';
- 
+ import InputLabel from '@mui/material/InputLabel';
+ import MenuItem from '@mui/material/MenuItem';
+ import FormControl from '@mui/material/FormControl';
+ import Select, { SelectChangeEvent } from '@mui/material/Select';
+ import CardMedia from '@mui/material/CardMedia';
+
+import  {Paper}  from '@mui/material';
  const Step2Page:NextPage = () => {
     const bull = (
         <Box
@@ -22,83 +28,94 @@ import type { NextPage } from 'next'
           •
         </Box>
       );
+
+      const [age, setAge] = React.useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setAge(event.target.value);
+  };
     return (
-      <div >
-        <h1>placeholder</h1> 
-        <div style={{display:"flex"}}>
-     {/*
-        <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="" />
-        <Card.Body>
-          <Card.Title>Find By Location</Card.Title>
-          <Card.Text>
-            Choose a state
-          </Card.Text>
-          <Link href="/meteorite_map">
-              GO
-            </Link>
-        </Card.Body>
-      </Card>
-    
+      <div>
+      <h1 style={{textAlign:'center'}}>Meteorites from native lands</h1> 
+      <div style={{display:"flex", justifyContent:'space-evenly '}}>
 
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="" />
-        <Card.Body>
-          <Card.Title>Find By Nation</Card.Title>
-          <Card.Text>
-            find by nation
-          </Card.Text>
-          <Link href="/meteorite_map">
-              GO
-            </Link>
-        </Card.Body>
-      </Card>
-    */}
+      
+
       <Card sx={{ minWidth: 500 }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 26 }} color="text.secondary" gutterBottom>
-          Find Meteorites by Location
-        </Typography>
-    
-        <Typography variant="body2">
-          picture goes here
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        
-        <Link href="/meteorite_map">
-        <Button size="small">Learn More</Button>
-            </Link>
-      </CardActions>
-    </Card>
+    <CardMedia
+      component="img"
+      height="140"
+      image="https://www.nationsonline.org/maps/US-states-Abbreviation-map.jpg"
+      alt="states"
+    />
+    <CardContent>
+      <Typography gutterBottom variant="h5" component="div">
+        Choose By State
+      </Typography>
+      <Typography variant="body2" color="text.secondary">
+        Find Meteorites in a specific state
+      </Typography>
+    </CardContent>
+    <CardActions>
+      
+    <Link href="/meteorite_map"><Button size="small">See Map</Button></Link>
+    </CardActions>
+  </Card>
 
-    <Card sx={{ minWidth: 500 }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 26 }} color="text.secondary" gutterBottom>
-          Find Meteorites by Nation
-        </Typography>
-    
-        <Typography variant="body2">
-          picture goes here
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
+  <Card sx={{ minWidth: 500 }}>
+    <CardMedia
+      component="img"
+      height="140"
+      image="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Oklahoma_Tribal_Statistical_Area.svg/1200px-Oklahoma_Tribal_Statistical_Area.svg.png"
+      alt="Native Nation map"
+    />
+    <CardContent>
+      <Typography gutterBottom variant="h5" component="div">
+        Choose By Nation
+      </Typography>
+      <Typography variant="body2" color="text.secondary">
+        Find Meteorites within an indigenous Nation
+      </Typography>
+    </CardContent>
+    <CardActions>
+    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+      <InputLabel id="demo-select-small">Nation</InputLabel>
+      <Select
+        labelId="demo-select-small"
+        id="demo-select-small"
+        value={age}
+        label="Age"
+        onChange={handleChange}
+      >
         
-        <Link href="/meteorite_map">
-        <Button size="small">Learn More</Button>
-            </Link>
-      </CardActions>
-    </Card>
-        </div>
+        <MenuItem value={10}>Cherokee</MenuItem>
+        <MenuItem value={20}>Chickasaw</MenuItem>
+        <MenuItem value={30}>Choctaw</MenuItem>
+      </Select>
+    </FormControl>
+    <Link href="/meteorite_map"><Button size="small">See map</Button></Link>
+    </CardActions>
+  </Card>
 
-        <div>
-            Lorem ipsum text 
-        </div>
+  
       </div>
+      <div style={{display:"flex", justifyContent:'space-evenly ', margin:"10vh"}}>
+      <Box >
+      <Paper elevation={12} >
+      <Typography variant="h5" component="div">
+        Description of Data
+      </Typography>
+      <Typography variant="body2" color="text.secondary">
+        She wanted a description of why there is only 3 meteorites so far
+      </Typography>
+     
+     </Paper>
+    </Box>
+      </div>
+      
+     
+    </div>
+     
     );
   }
 

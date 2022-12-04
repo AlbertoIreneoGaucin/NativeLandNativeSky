@@ -15,6 +15,7 @@ import {useAuthState} from 'react-firebase-hooks/auth'
     if(loading){
         return <div>Loading...</div>
     }
+    console.log(user)
     if(!user){
         router.push('/admin')
         return <div>Please sign in to continue </div>
