@@ -34,6 +34,8 @@ import {getStorage, ref, uploadBytes, listAll} from "firebase/storage";
 import { Component } from 'react';
 import { Url } from 'url';
 
+import {useRef} from 'react';
+
 /*
 uploadBytes(pdf1ref, file).then((snapshot) => {
   console.log('Uploaded a blob or file!');
@@ -47,6 +49,10 @@ const Step3Landing:NextPage = () => {
   const listRef = ref(storage, 'files/uid');
   const pdfsref = ref(storage);
   const pdfs: string[] = [];
+
+  const [buttonText, setButtonText] = useState('Click');
+
+  const reference = useRef(null);
 
   const oneRef = ref(storage, 'CSF_syllabus.pdf'); //samples, we would get the names from "pdfs--> which IS possible."
 
@@ -75,35 +81,48 @@ const Step3Landing:NextPage = () => {
       console.log(error);
    });
 
-   getDownloadURL(oneRef)
-    .then((url) => {
-      // Insert url into an <img> tag to "download"
-      //const url = file.downloadURL;
-      console.log(url);
-      window.open(url,'_blank');
-    })
-    .catch((error) => {
-      // A full list of error codes is available at
-      // https://firebase.google.com/docs/storage/web/handle-errors
-      switch (error.code) {
-        case 'storage/object-not-found':
-          // File doesn't exist
-          break;
-        case 'storage/unauthorized':
-          // User doesn't have permission to access the object
-          break;
-        case 'storage/canceled':
-          // User canceled the upload
-          break;
-        case 'storage/unknown':
-          // Unknown error occurred, inspect the server response
-          break;
-      }
-    });
+   function makeButton(data) {
+    return (
+        <button 
+            style={someStyle}
+            onClick={() => onClickFunction(data.label)}> //pass parameter for callback here if binding isn't used
+            data.name
+        </button>
+    );
+}
 
-   async function getMaterials() {
+   const handleClick = event => {
+    console.log(event.currentTarget.id);
+    setButtonText(pdf);
+  };
 
-   }
+   const getEduTool = event => {
+      getDownloadURL(oneRef)
+      .then((url) => {
+        // Insert url into an <img> tag to "download"
+        //const url = file.downloadURL;
+        console.log(url);
+        window.open(url,'_blank');
+      })
+      .catch((error) => {
+        // A full list of error codes is available at
+        // https://firebase.google.com/docs/storage/web/handle-errors
+        switch (error.code) {
+          case 'storage/object-not-found':
+            // File doesn't exist
+            break;
+          case 'storage/unauthorized':
+            // User doesn't have permission to access the object
+            break;
+          case 'storage/canceled':
+            // User canceled the upload
+            break;
+          case 'storage/unknown':
+            // Unknown error occurred, inspect the server response
+            break;
+        }
+      });
+  }
 
    return(
     <div  >
@@ -121,8 +140,8 @@ const Step3Landing:NextPage = () => {
     <h2>
         High School Materials
     </h2>
-    <button onClick={getMaterials} > PDF Sample 1 </button>
-    <button> PDF Sample 2 </button>
+    <button id="nameofbutton" onClick={handleClick} > {buttonText} </button>
+    <button id="button2" onClick={getEduTool}> PDF Sample 2 </button>
     <h2>
         Middle School Materials
     </h2>
