@@ -15,11 +15,11 @@ import Head from 'next/head'
 //import { collection, deleteDoc, doc, DocumentData, getDocs, limit, query, QueryDocumentSnapshot, updateDoc, where } from "@firebase/firestore";
 //import styles from '../styles/Home.module.css'
 
-import { useEffect, useState } from 'react';
+import { useDebugValue, useEffect, useState } from 'react';
 import Link from 'next/link';
 import React from "react";
 
-import { doc, getDoc} from "firebase/firestore"; 
+import { doc, getDoc, onSnapshot} from "firebase/firestore"; 
 import { firestore } from '../../firebase/initFirebase'
 
 
@@ -28,9 +28,11 @@ import { collection, getDocs } from "firebase/firestore";
 //////----------------------------------------------------
 //import { useState } from "react";
 import { storage } from '../../firebase/initFirebase'
-import {uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import {uploadBytesResumable, getDownloadURL, StorageReference } from "firebase/storage";
 
 import {getStorage, ref, uploadBytes, listAll} from "firebase/storage";
+import { Component } from 'react';
+import { Url } from 'url';
 
 /*
 uploadBytes(pdf1ref, file).then((snapshot) => {
@@ -43,69 +45,108 @@ const uploadTask = uploadBytesResumable(pdf1ref, file);
 const Step3Landing:NextPage = () => {
   //const storage = getStorage();
   const listRef = ref(storage, 'files/uid');
-  const pdf1ref = ref(storage);
+  const pdfsref = ref(storage);
+  const pdfs: string[] = [];
 
-  listAll(pdf1ref)
-    .then((res) => {
-      //console.log ("HELLO")
-      console.log(res.prefixes);
-      res.prefixes.forEach((folderRef) => {
-        // All the prefixes under listRef.
-        // You may call listAll() recursively on them.
-        //console.log("HELLO");
+  const oneRef = ref(storage, 'CSF_syllabus.pdf'); //samples, we would get the names from "pdfs--> which IS possible."
+
+  listAll(pdfsref)
+      .then(
+        (res) => {
+        //const download: any = []
+        //res.prefixes.forEach((folderRef) => {});
+        res.items.forEach((itemRef) => {
+          // All the items under listRef.
+          //console.log(itemRef.fullPath);
+          pdfs.push(itemRef.fullPath);
+          //download.push(itemRef.fullPath);
       });
-      console.log(res.items);
-      console.log ("HI THERE")
-      res.items.forEach((itemRef) => {
-        // All the items under listRef.
-        console.log(itemRef);
-        console.log ("HELLO")
-      });
-    }).catch((error) => {
-      // Uh-oh, an error occurred!
+      pdfs.forEach((pdf) => {
+        let url = ref(storage, pdf);
+        console.log("url: " + url);
+        console.log("PDF: " + pdf);
+        //add to the links list
+        }
+        ) //successfully saved the PDF's to "pdfs" at this point.
+      //console.log("CHECKPOINT #3")
+      //pdfs.bind({ download: download}
+
+     }).catch((error) => {
+      console.log(error);
+   });
+
+   getDownloadURL(oneRef)
+    .then((url) => {
+      // Insert url into an <img> tag to "download"
+      //const url = file.downloadURL;
+      console.log(url);
+      window.open(url,'_blank');
+    })
+    .catch((error) => {
+      // A full list of error codes is available at
+      // https://firebase.google.com/docs/storage/web/handle-errors
+      switch (error.code) {
+        case 'storage/object-not-found':
+          // File doesn't exist
+          break;
+        case 'storage/unauthorized':
+          // User doesn't have permission to access the object
+          break;
+        case 'storage/canceled':
+          // User canceled the upload
+          break;
+        case 'storage/unknown':
+          // Unknown error occurred, inspect the server response
+          break;
+      }
     });
 
-    return(
-      <div  >
-      <Head>
-          <title>Educational Resources</title>
-          <meta name="description" content="Next.js firebase todos app" />
-          <link rel="icon" href="/favicon.ico" />
-      </Head>
-      
-      <main >
-      <Link href={`/`}> Home Page </Link>
-      <h1 >
-      Educational Resources
-      </h1>
-      <h2>
-          High School Materials
-      </h2>
-      <button> PDF Sample 1 </button>
-      <button> PDF Sample 2 </button>
-      <h2>
-          Middle School Materials
-      </h2>
-      <button> PDF Sample 3 </button>
-      <button> PDF Sample 4 </button>
-      <h2>
-          Elementary School Materials
-      </h2>
-      <button> PDF Sample 5 </button>
-      <button> PDF Sample 6 </button>
-    </main>
-  
-    <footer >
-    <Link href = {`/`}>
-          Homepage
-        </Link>
-    </footer>
-  </div>
-    )
-}
+   async function getMaterials() {
+
+   }
+
+   return(
+    <div  >
+    <Head>
+        <title>Educational Resources</title>
+        <meta name="description" content="Next.js firebase todos app" />
+        <link rel="icon" href="/favicon.ico" />
+    </Head>
+    
+    <main >
+    <Link href={`/`}> Home Page </Link>
+    <h1 >
+    Educational Resources
+    </h1>
+    <h2>
+        High School Materials
+    </h2>
+    <button onClick={getMaterials} > PDF Sample 1 </button>
+    <button> PDF Sample 2 </button>
+    <h2>
+        Middle School Materials
+    </h2>
+    <button> PDF Sample 3 </button>
+    <button> PDF Sample 4 </button>
+    <h2>
+        Elementary School Materials
+    </h2>
+    <button> PDF Sample 5 </button>
+    <button> PDF Sample 6 </button>
+  </main>
+
+  <footer >
+  <Link href = {`/`}>
+        Homepage
+      </Link>
+  </footer>
+</div>
+  )
+}; 
 
 export default Step3Landing;
 //////----------------------------------------------------
+
 
 /*
 const Step3Landing:NextPage = () => {
