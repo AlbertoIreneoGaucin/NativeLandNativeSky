@@ -26,7 +26,7 @@ import { NextPage } from 'next'
 
 
 
-const LoginPage:NextPage = () => {
+const LoginPage = () => {
   const router = useRouter()
   //const { user, login } = useAuth()
   //console.log('user is', user, 'login is',login)
@@ -44,7 +44,7 @@ const LoginPage:NextPage = () => {
     //console.log(user)
     try {
       await login(data.email, data.password)
-      router.push('/admin/dashboard')
+      router.push('/dashboard')
     } catch (err) {
       console.log(err)
     }

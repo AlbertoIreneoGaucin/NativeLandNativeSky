@@ -15,7 +15,7 @@ import type { NextPage } from 'next'
  import CardMedia from '@mui/material/CardMedia';
 
 import  {Paper}  from '@mui/material';
- const HomePage:NextPage = () => {
+ const HomePage = () => {
     return (
       <div>
         <h1 style={{textAlign:'center'}}>Meteorites from native lands</h1> 

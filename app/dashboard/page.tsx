@@ -1,14 +1,13 @@
-
 'use client'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/navigation';
 
-import {auth} from '../../../firebase/initFirebase'
+import {auth} from '../../firebase/initFirebase'
 import {useAuthState} from 'react-firebase-hooks/auth'
 import React, { useState } from "react";
 import { Button, TextField, Card, CardContent, CardActions, CardHeader,  } from '@mui/material'
 import { GeoPoint } from "firebase/firestore";
-import { firestore} from "../../../firebase/initFirebase";
+import { firestore} from "../../firebase/initFirebase";
 import {
     addDoc,
     collection,
@@ -20,7 +19,7 @@ import {
     signInWithEmailAndPassword,
     signOut,
   } from 'firebase/auth'
-export interface NewMeteoriteType {
+interface NewMeteoriteType {
     coordinates?: GeoPoint;
     name?:string;
     description?: string;
@@ -28,7 +27,7 @@ export interface NewMeteoriteType {
     picture?:string;
   }
   
-  export interface AddMeteoriteType {
+  interface AddMeteoriteType {
     coordinates?: GeoPoint;
     name?:string;
     description?: string;
@@ -36,7 +35,7 @@ export interface NewMeteoriteType {
     picture?:string;
   }
 
- const AdminDashBoard:NextPage = () => {
+ const AdminDashBoard = () => {
     const router = useRouter()
    
     const[user, loading] = useAuthState(auth)

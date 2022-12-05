@@ -19,7 +19,7 @@ import type { NextPage } from 'next'
  import CardMedia from '@mui/material/CardMedia';
 
 import  {Paper}  from '@mui/material';
- const Step2Page:NextPage = () => {
+ const Step2Page = () => {
     const bull = (
         <Box
           component="span"

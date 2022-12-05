@@ -27,7 +27,7 @@ import Card from '@mui/material/Card';
  //import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
  
  
- const MapPage:NextPage = () => {
+ const MapPage = () => {
     
   const [isOpen, setIsOpen] = useState(false);
   
