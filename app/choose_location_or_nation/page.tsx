@@ -29,10 +29,13 @@ import  {Paper}  from '@mui/material';
         </Box>
       );
 
-      const [age, setAge] = React.useState('');
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value);
+  const [nation, setNation] = React.useState('');
+  const [state, setState] = React.useState('');
+  const handleNationChange = (event: SelectChangeEvent) => {
+    setNation(event.target.value);
+  };
+  const handleStateChange = (event: SelectChangeEvent) => {
+    setState(event.target.value);
   };
     return (
       <div>
@@ -57,6 +60,22 @@ import  {Paper}  from '@mui/material';
       </Typography>
     </CardContent>
     <CardActions>
+    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+      <InputLabel id="demo-select-small">State</InputLabel>
+      <Select
+        labelId="demo-select-small"
+        id="demo-select-small"
+        value={state}
+        label="Age"
+        onChange={handleStateChange}
+      >
+        
+        <MenuItem value={10}>Alaska</MenuItem>
+        <MenuItem value={20}>Texas</MenuItem>
+        <MenuItem value={30}>Oklahoma</MenuItem>
+        <MenuItem value={40}>New York</MenuItem>
+      </Select>
+    </FormControl>
       
     <Link href="/meteorite_map"><Button size="small">See Map</Button></Link>
     </CardActions>
@@ -83,9 +102,9 @@ import  {Paper}  from '@mui/material';
       <Select
         labelId="demo-select-small"
         id="demo-select-small"
-        value={age}
+        value={nation}
         label="Age"
-        onChange={handleChange}
+        onChange={handleNationChange}
       >
         
         <MenuItem value={10}>Cherokee</MenuItem>

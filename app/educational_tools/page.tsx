@@ -274,25 +274,33 @@ const Step3Landing:NextPage =  () => {
 
     function createData(
       name: string,
-      calories: number,
-      fat: number,
-      carbs: number,
-      protein: number,
+      description: string,
+      
     ) {
-      return { name, calories, fat, carbs, protein };
+      return { name, description};
     }
     
-    const rows = [
-      createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-      createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-      createData('Eclair', 262, 16.0, 24, 6.0),
-      createData('Cupcake', 305, 3.7, 67, 4.3),
-      createData('Gingerbread', 356, 16.0, 49, 3.9),
+    const middleSchool = [
+      createData('Middle School Example 1', 'Example pdf for middle school'),
+      createData('Middle School Example 2', 'Example pdf for middle school'),
+      
+    ];
+    const elementarySchool = [
+      createData('Elementary School Example 1', 'Example pdf for elementary school'),
+      createData('Elementary School Example 2', 'Example pdf for elementary school'),
+      
+    ];
+    const highSchool = [
+      createData('High School Example 1', 'Example pdf for high school'),
+      
     ];
 
+  
   const download = () =>
   {
-    console.log('download clicked')
+    //console.log('download clicked')
+    //openInNewTab('https://google.com')
+    window.open('https://firebasestorage.googleapis.com/v0/b/nativelandnativesky.appspot.com/o/CSF_syllabus.pdf?alt=media&token=bdaa5d5e-1141-4c1f-abfa-c50b14f15eab', '_blank', 'noopener,noreferrer');
   }
   const previewPdf = () =>
   {
@@ -305,12 +313,40 @@ const Step3Landing:NextPage =  () => {
           <Typography>Elementary School Tools</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
+        <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell align='left'>Description</TableCell>
+            <TableCell align="right">Actions</TableCell>
+            
+            
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {elementarySchool.map((row) => (
+            <TableRow
+              key={row.name}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.name}
+              </TableCell>
+              <TableCell align='left' component="th" scope="row">
+                {row.description}
+              </TableCell>
+              <TableCell align="right">
+              <IconButton aria-label="download" onClick={download}>
+                 <GetAppIcon />
+              </IconButton>
+              
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
         </AccordionDetails>
       </Accordion>
       <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
@@ -330,7 +366,7 @@ const Step3Landing:NextPage =  () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {middleSchool.map((row) => (
             <TableRow
               key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -339,15 +375,13 @@ const Step3Landing:NextPage =  () => {
                 {row.name}
               </TableCell>
               <TableCell align='left' component="th" scope="row">
-                {row.calories}
+                {row.description}
               </TableCell>
               <TableCell align="right">
               <IconButton aria-label="download" onClick={download}>
                  <GetAppIcon />
               </IconButton>
-              <IconButton aria-label="view" onClick={previewPdf}>
-                 <VisibilityIcon />
-              </IconButton>
+              
               </TableCell>
             </TableRow>
           ))}
@@ -361,12 +395,40 @@ const Step3Landing:NextPage =  () => {
           <Typography>High School Tools</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor
-            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
+        <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell align='left'>Description</TableCell>
+            <TableCell align="right">Actions</TableCell>
+            
+            
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {highSchool.map((row) => (
+            <TableRow
+              key={row.name}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.name}
+              </TableCell>
+              <TableCell align='left' component="th" scope="row">
+                {row.description}
+              </TableCell>
+              <TableCell align="right">
+              <IconButton aria-label="download" onClick={download}>
+                 <GetAppIcon />
+              </IconButton>
+              
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
         </AccordionDetails>
       </Accordion>
     </div>

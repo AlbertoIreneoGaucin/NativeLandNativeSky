@@ -63,7 +63,7 @@ export default function ButtonAppBar() {
         <Link href="/admin"  style={{ textDecoration: "none", color: "white" }}><MenuItem onClick={handleClose}>Admin</MenuItem></Link>
       </Menu>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Map of Meteorites
+            NENS Interactive Map tool
           </Typography>
         
         </Toolbar>

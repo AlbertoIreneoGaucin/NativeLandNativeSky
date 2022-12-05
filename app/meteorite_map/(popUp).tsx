@@ -16,10 +16,11 @@ import Card from '@mui/material/Card';
  import CardContent from '@mui/material/CardContent';
  import CardMedia from '@mui/material/CardMedia';
 import { database } from "firebase-admin";
-
+import Link from 'next/link';
 interface props {
     handleClose: React.MouseEventHandler
     content: React.ReactElement;
+    info:any[];
 }
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -71,6 +72,10 @@ const Popup = (props: props
   const handleClose = () => {
     setOpen(false);
   };
+  const learnMore = () => {
+    window.open('https://www.metbase.org', '_blank', 'noopener,noreferrer');
+
+  };
 const data ={
     description: 'sdfsfdffdd'
 
@@ -111,7 +116,8 @@ const data ={
     </Card>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={props.handleClose}>
+            
+          <Button  onClick={learnMore}>
             Learn More
           </Button>
         </DialogActions>

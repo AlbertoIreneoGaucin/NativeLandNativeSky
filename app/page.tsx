@@ -69,18 +69,21 @@ import  {Paper}  from '@mui/material';
         </div>
         <div style={{display:"flex", justifyContent:'space-evenly ', margin:"10vh"}}>
         <Box >
-        <Paper elevation={24} >
+        <Paper elevation={12} >
         <Typography variant="h5" component="div">
-          About Us
+          About the Project
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        
+<Typography variant="body2" color="text.secondary">
+Meteorites lend themselves well to place-based education, which connects student learning to their surroundings. Establishing learning as personally relevant increased engagement and strengthens ties within the local and global community. The meteorite story can serve as the foundation for understanding the entire history of the meteorite, including its formation, thus a concrete example of cultural relevance in planetary science and STEM.
+NaLa will develop free-choice STEM resources, including a website, that focuses on meteorites found on the lands of the three Oklahoma Native American nations participating in Native Earth | Native Sky. In addition, NaLa will produce supplemental resources for NENS that fit their developed curricula model and meet their culturally-relevant requirements.
+</Typography>
+<Typography variant="body2" color="text.secondary">
         The NENS SciAct program at OSU is creating culturally-relevant curricula that interlink Native American stories and language with STEM principles. This allows students to better identify with the concepts taught, which increases the understanding and interest in STEM. However, while schools are traditionally considered the primary centers of learning, more than 50% of people attribute their scientific knowledge to free-choice learning experiences [3].
         	Over the 12 months of SCoPE funding, a website will be developed that utilizes the  culturally-relevant curricula insights from NENS to educate free-choice learners on meteorites that fell on the Native Lands of the three tribes involved in the NENS project. Long term, this goal will be expanded to include the Native Lands of more tribes as well as more free-choice learning mediums, including publications and a permanent exhibit at the Monnig Meteorite Gallery on the campus of Texas Christian University.
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-        Most of us do not think about the land upon which we live and work; whereas, Indigenous communities have a deep-seated understanding of the importance and sacredness that their land has in their daily lives (native lands.ca); they have a deep sense of place. Planetary science “is a grand human enterprise that seeks to discover the nature and origin of the celestial bodies among which we live…” (Ref nasa doc). In other words, planetary science is rooted in a sense of place; it provides the context for all planetary science research. Meteorites are unique as they have two places: the place from which they came, and the place where they fell. All meteorites found within North America fell on Native Lands.
-	The primary objective of Native Lands (NaLa) is to amplify the work of the Native Earth | Native Sky (NENS) program by recognizing the critical importance of free-choice learning in STEM education and providing a different lens through which STEM can be made culturally-relevant for students in Native American nations. This will be achieved in two major ways. Firstly, NaLa will add free-choice learning (i.e. beyond a traditional classroom) as a mechanism to bring Native American cultural perspectives into STEM education, both for the Native and non-Native American populace. Secondly, a focus on meteorites found on the lands of the three Oklahoma Native American tribes participating in NENS provides a concrete example of the cultural relevance of planetary science and STEM, utilizing concepts that are deeply rooted in a sense of place.
-        </Typography>
+        
+
        </Paper>
       </Box>
         </div>
