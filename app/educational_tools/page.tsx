@@ -1,134 +1,3 @@
-/*export default function educational_tools() {
-    return (
-      <div>
-        <h1>test Page</h1>
-        <p>Some content</p>
-      </div>
-    );
-  }
-*/
-
-//  https://www.youtube.com/watch?v=c_ig_EwSRhQ
-
-/*
-'use client';
-import type { NextPage } from 'next'
-import Head from 'next/head'
-//import { firebase.firestore as firestore } from '../../firebase/initFirebase'
-import { collection, deleteDoc, doc, DocumentData, getDocs, limit, query, QueryDocumentSnapshot, updateDoc, where } from "@firebase/firestore";
-//import styles from '../styles/Home.module.css'
-
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
-import React from "react";
-
-const Step3Landing:NextPage = () => {
-
-    const [meteorites,setEduTools] = useState<QueryDocumentSnapshot<DocumentData>[]>([]);
-    const [loading,setLoading] = useState<boolean>(true);
-
-    useEffect( () => {
-        getEduTools();
-        setTimeout( () => {
-          setLoading(false);
-        },2000)
-        
-      },[]);
-    
-    
-      //const meteoritesCollection = collection(firestore,'Meteorites');
-      
-      const getEduTools = async () => {
-        //const meteoritesQuery = query(meteoritesCollection,where('show','==',true),limit(10));
-        //const querySnapshot = await getDocs(meteoritesQuery);
-        //const result: QueryDocumentSnapshot<DocumentData>[] = [];
-        //querySnapshot.forEach((snapshot) => {
-        //  result.push(snapshot);
-        //})
-        //setEduTools(result);
-      };
-
-      const updateEduTools = async (documentId: string) => {
-        // create a pointer to the document id
-        //const _meteorites = doc(firestore,`Educational Resources/${documentId}`);
-    
-        // update the doc by setting done to true
-        //await updateDoc(_meteorites,{
-        //  "show":true
-        //});
-    
-        // retrieve meteorites
-        getEduTools();
-      }
-
-      const deleteEduTools = async (documentId:string) => {
-        // create a pointer to the document id
-        //const _meteorites = doc(firestore,`Meteorites/${documentId}`);
-   
-        // delete the doc
-        //await deleteDoc(_meteorites);
-    
-        // retrieve todos
-        getEduTools();
-     }
-        // Function will execute on click of button
-        const onButtonClick = () => {
-            // using Java Script method to get PDF file
-            fetch('Sample.pdf').then(response => {
-                response.blob().then(blob => {
-                    // Creating new object of PDF file
-                    const fileURL = window.URL.createObjectURL(blob);
-                    // Setting various property values
-                    let alink = document.createElement('a');
-                    alink.href = fileURL;
-                    alink.download = 'SamplePDF.pdf';
-                    alink.click();
-                })
-            })
-        }
-
-    return(
-        <div  >
-        <Head>
-            <title>Educational Resources</title>
-            <meta name="description" content="Next.js firebase todos app" />
-            <link rel="icon" href="/favicon.ico" />
-        </Head>
-        
-        <main >
-        <Link href={`/`}> Home Page </Link>
-        <h1 >
-        Educational Resources
-        </h1>
-        <h2>
-            High School Materials
-        </h2>
-        <button onClick={onButtonClick}> PDF Sample 1 </button>
-        <button onClick={onButtonClick}> PDF Sample 2 </button>
-        <h2>
-            Middle School Materials
-        </h2>
-        <button onClick={onButtonClick}> PDF Sample 3 </button>
-        <button onClick={onButtonClick}> PDF Sample 4 </button>
-        <h2>
-            Elementary School Materials
-        </h2>
-        <button onClick={onButtonClick}> PDF Sample 5 </button>
-        <button onClick={onButtonClick}> PDF Sample 6 </button>
-      </main>
-
-      <footer >
-      <Link href = {`/`}>
-            Homepage
-          </Link>
-      </footer>
-    </div>)
-
-}
-
-export default Step3Landing
-*/
-
 
 //https://www.youtube.com/watch?v=c_ig_EwSRhQ
 
@@ -156,11 +25,18 @@ import GetAppIcon from '@mui/icons-material/GetApp';
 import { NextPage } from 'next';
 //import {firestore as db} from "../../firebase/initFirebase";
 import { firestore} from "../../firebase/initFirebase";
-import { storage } from '../../firebase/initFirebase'
+//import firebase from "firebase/app";
+import { storage } from '../../firebase/initFirebase' //////CONNECTION TO FIREBASE
+
 import {uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 import {getStorage, ref, uploadBytes, listAll} from "firebase/storage";
 import { collection, deleteDoc, doc, DocumentData, getDocs, limit, query, QueryDocumentSnapshot, updateDoc, where, getDoc} from "@firebase/firestore";
+
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+
 
 const Accordion = styled((props: AccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -204,25 +80,26 @@ const Step3Landing =  () => {
   const meteoritesCollection = collection(firestore,'Meteorites');
   //const [todos, setTodos] = useState([]);
 
-  /*
+  
   const listRef = ref(storage, 'files/uid');
   const pdf1ref = ref(storage);
 
+  /* 1.0 //
   listAll(pdf1ref)
     .then((res) => {
-      //console.log ("HELLO")
+      console.log ("1. CHECKPOINT")
       console.log(res.prefixes);
       res.prefixes.forEach((folderRef) => {
         // All the prefixes under listRef.
         // You may call listAll() recursively on them.
-        //console.log("HELLO");
+        console.log("2. CHECKPOINT");
       });
       console.log(res.items);
-      console.log ("HI THERE")
+      console.log ("3. CHECKPOINT")
       res.items.forEach((itemRef) => {
         // All the items under listRef.
         console.log(itemRef);
-        console.log ("HELLO")
+        console.log ("4. CHECKPOINT")
       });
     }).catch((error) => {
       // Uh-oh, an error occurred!
@@ -230,45 +107,35 @@ const Step3Landing =  () => {
   */
   const [meteorites,setEduTools] = React.useState<QueryDocumentSnapshot<DocumentData>[]>([]);
 
-  const getEduTools = async () => {
-    const meteoritesQuery = query(meteoritesCollection,where('Visible','==',true),limit(10));
-    const querySnapshot = await getDocs(meteoritesQuery);
-    const result: QueryDocumentSnapshot<DocumentData>[] = [];
-    querySnapshot.forEach((snapshot) => {
-      result.push(snapshot);
-      //console.log('dsfs', snapshot.data)
-    })
-    setEduTools(result);
-  };
-
-  const getData = async () =>{
-  const docRef = doc(firestore, "Meteorites", "Lost City");
-  const docSnap =  await getDoc(docRef);
-  console.log('sdfsf',docSnap.data())
+  //2.0
+  function listAll() {
+    const storageRef = firebase.storage().ref();
   
-  }
+    // [START storage_list_all]
+    // Create a reference under which you want to list
+    var listRef = storageRef.child("EducationalDocuments/");
   
-  
-  //console.log(meteorites)
-
-  /*
-  const addTodo = async (e:any) => {
-    e.preventDefault();  
-   
-    try {
-        const docRef = await addDoc(collection(firestore, "todos"), {
-          todo: "asasa",    
+    // Find all the prefixes and items.
+    listRef.listAll()
+      .then((res) => {
+        res.prefixes.forEach((folderRef) => {
+          // All the prefixes under listRef.
+          // You may call listAll() recursively on them.
         });
-        console.log("Document written with ID: ", docRef.id);
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
-}
-*/
- 
+        res.items.forEach((itemRef) => {
+          // All the items under listRef.
+          //console.log(itemRef);
+          itemRef.getDownloadURL().then((url) => {
+            console.log("downloadURL: " + url);
+            //songsArrayList.push(url);
 
-
-  
+          });
+        });
+      }).catch((error) => {
+        // Uh-oh, an error occurred!
+      });
+    // [END storage_list_all]
+  }
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
