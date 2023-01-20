@@ -27,7 +27,7 @@ import  {Paper}  from '@mui/material';
       <CardMedia
         component="img"
         height="140"
-        image="https://geology.com/world/usa-physical.jpg"
+        image="/earth.jpg"
         alt="green iguana"
       />
       <CardContent>
@@ -48,7 +48,7 @@ import  {Paper}  from '@mui/material';
       <CardMedia
         component="img"
         height="140"
-        image="https://www.jamcampus.com/wp-content/uploads/2018/12/online-teaching-tools-jamcampus-education.jpg"
+        image="/bookimg.jpg"
         alt="green iguana"
       />
       <CardContent>
